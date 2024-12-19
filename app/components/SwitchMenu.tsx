@@ -1,22 +1,33 @@
 "use client"
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Image from "next/image";
 import openbg from "@/public/openbg.svg";
 import {useNavigate} from "react-router-dom";
 
 const SwitchMenu = () => {
+    const audioRef = useRef(null);
+
     const [nav,setNav] = useState("main")
     const navigate = useNavigate()
     useEffect(() => {
         navigate(nav === "main" ? "/" : `/${nav}`)
     }, [nav]);
+    const handleClick = () => {
+        if (audioRef.current) {
+            audioRef.current.play();
+        }
+    };
     return (
-        <div className={"flex flex-row flex-wrap gap-[16px]"}>
-            <div onClick={() => {setNav("main")}} className={'flex flex-col cursor-pointer max-w-[200px]   relative'}>
+        <div className={"grid max-w-[1300px] lg:grid-cols-2 2xl:grid-cols-5 w-full flex-wrap gap-[16px]"}>
+            <audio ref={audioRef} src="/comp.mp3" preload="auto"></audio>
+            <div onClick={() => {
+                setNav("main")
+                handleClick()
+            }} className={'flex flex-col cursor-pointer w-full h-full   relative'}>
                 <div className={`${nav === "main" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
 
                 <div
-                    className={`w-[200px] overflow-hidden max-w-[200px] ${nav === "main" && "!bg-opacity-70  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]  h-[40px] group relative cursor-pointer  h-[31px] `}>
+                    className={`w-full overflow-hidden h-full max-h-[35px] pb-[5px]  ${nav === "main" && "!bg-opacity-90  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]   group relative cursor-pointer   `}>
                     <h6 className={'text-[24px]  !tracking-widest group-hover:text-white px-[5px]  uppercase text-white bigbold'}>
                         beginning
                     </h6>
@@ -28,18 +39,23 @@ const SwitchMenu = () => {
                     </svg>
 
                 </div>
+
                 <div
-                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white h-[52px] p-[6px] iceregular bg-[#131313]'}>
+                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white  h-full pb-[5px]  p-[6px] iceregular bg-[#131313]'}>
                     home page, this is the page the user sees when they first log in.
                 </div>
             </div>
-            <div onClick={() => {setNav("about")}} className={'flex flex-col cursor-pointer max-w-[200px]   relative'}>
-                <div className={`${nav === "about" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
+            <div onClick={() => {
+                setNav("about")
+                handleClick()
+            }} className={'flex flex-col cursor-pointer w-full   relative'}>
+                <div
+                    className={`${nav === "about" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
 
                 <div
-                    className={`w-[200px] overflow-hidden max-w-[200px] ${nav === "about" && "!bg-opacity-70  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]  h-[40px] group relative cursor-pointer  h-[31px] `}>
+                    className={`w-full overflow-hidden  h-[60px] pb-[5px]   ${nav === "about" && "!bg-opacity-90  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]   group relative cursor-pointer   `}>
                     <h6 className={'text-[24px]  !tracking-widest group-hover:text-white px-[5px]  uppercase text-white bigbold'}>
-                        ABOUT
+                        about
                     </h6>
                     <svg className={'absolute top-[-10px] right-[-10px]'} width="43" height="57" viewBox="0 0 43 57"
                          fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,15 +66,19 @@ const SwitchMenu = () => {
 
                 </div>
                 <div
-                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white h-[52px] p-[6px] iceregular bg-[#131313]'}>
+                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white  h-full pb-[5px]  p-[6px] iceregular bg-[#131313]'}>
                     a page about me. who is emrelutfi
                 </div>
             </div>
-            <div onClick={() => {setNav("projects")}} className={'flex flex-col cursor-pointer max-w-[200px]   relative'}>
-                <div className={`${nav === "projects" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
+            <div onClick={() => {
+                setNav("projects")
+                handleClick()
+            }} className={'flex flex-col cursor-pointer w-full   relative'}>
+                <div
+                    className={`${nav === "projects" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
 
                 <div
-                    className={`w-[200px] overflow-hidden max-w-[200px] ${nav === "projects" && "!bg-opacity-70  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]  h-[40px] group relative cursor-pointer  h-[31px] `}>
+                    className={`w-full overflow-hidden h-full max-h-[35px]   ${nav === "projects" && "!bg-opacity-90  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]   group relative cursor-pointer   `}>
                     <h6 className={'text-[24px]  !tracking-widest group-hover:text-white px-[5px]  uppercase text-white bigbold'}>
                         PROJECTS
                     </h6>
@@ -71,17 +91,21 @@ const SwitchMenu = () => {
 
                 </div>
                 <div
-                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-[13px] text-white h-[52px] p-[6px] iceregular bg-[#131313]'}>
+                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-[13px] text-white pb-[5px] h-full  p-[6px] iceregular bg-[#131313]'}>
                     examine my projects and maybe you can find my mistakes. Remember the project is important.
                 </div>
             </div>
-            <div onClick={() => {setNav("music")}} className={'flex flex-col cursor-pointer max-w-[200px]   relative'}>
-                <div className={`${nav === "music" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
+            <div onClick={() => {
+                setNav("music")
+                handleClick()
+            }} className={'flex flex-col cursor-pointer w-full   relative'}>
+                <div
+                    className={`${nav === "music" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
 
                 <div
-                    className={`w-[200px] overflow-hidden max-w-[200px] ${nav === "music" && "!bg-opacity-70  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]  h-[40px] group relative cursor-pointer  h-[31px] `}>
+                    className={`w-full overflow-hidden h-full max-h-[35px]  ${nav === "music" && "!bg-opacity-90    !bg-[#E84A4A]"} bg-opacity-70 static z-10  bg-[#242425]   group relative cursor-pointer   `}>
                     <h6 className={'text-[24px]  !tracking-widest group-hover:text-white px-[5px]  uppercase text-white bigbold'}>
-                        MUSIC
+                        music
                     </h6>
                     <svg className={'absolute top-[-10px] right-[-10px]'} width="43" height="57" viewBox="0 0 43 57"
                          fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,17 +116,21 @@ const SwitchMenu = () => {
 
                 </div>
                 <div
-                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white h-[52px] p-[6px] iceregular bg-[#131313]'}>
+                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 z-0 static leading-4 text-white  h-full pb-[5px]  p-[6px] iceregular bg-[#131313]'}>
                     Do you want to know about my taste in music?
                 </div>
             </div>
-            <div onClick={() => {setNav("contact")}} className={'flex flex-col cursor-pointer max-w-[200px]   relative'}>
-                <div className={`${nav === "contact" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
+            <div onClick={() => {
+                setNav("contact")
+                handleClick()
+            }} className={'flex flex-col cursor-pointer w-full   relative'}>
+                <div
+                    className={`${nav === "contact" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
 
                 <div
-                    className={`w-[200px] overflow-hidden max-w-[200px] ${nav === "contact" && "!bg-opacity-70  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]  h-[40px] group relative cursor-pointer  h-[31px] `}>
+                    className={`w-full overflow-hidden h-full max-h-[35px]  ${nav === "contact" && "!bg-opacity-90  !bg-[#E84A4A]"} bg-opacity-70  bg-[#242425]   group relative cursor-pointer   `}>
                     <h6 className={'text-[24px]  !tracking-widest group-hover:text-white px-[5px]  uppercase text-white bigbold'}>
-                       Contact
+                        contact
                     </h6>
                     <svg className={'absolute top-[-10px] right-[-10px]'} width="43" height="57" viewBox="0 0 43 57"
                          fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,7 +141,7 @@ const SwitchMenu = () => {
 
                 </div>
                 <div
-                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white h-[52px] p-[6px] iceregular bg-[#131313]'}>
+                    className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white  h-full pb-[5px]  p-[6px] iceregular bg-[#131313]'}>
                     Communicate with me, let's explore worlds that don't exist together.
                 </div>
             </div>
