@@ -49,6 +49,7 @@ const OpenToHire: React.FC<Modal> = ({ swModal }) => {
     });
 
     useEffect(() => {
+        if (typeof document === "undefined") return;
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
                 swModal();

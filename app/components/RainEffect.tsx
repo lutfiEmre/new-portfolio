@@ -10,6 +10,7 @@ const RainEffect = () => {
 
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
         const { innerWidth, innerHeight } = window;
         const dropCount = 500;
 

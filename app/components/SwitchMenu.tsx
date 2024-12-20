@@ -1,13 +1,14 @@
 "use client"
 import React, { useRef, useState} from 'react';
 
-import {useNavigate} from "react-router-dom";
+import {useRouter} from "next/navigation";
 
 const SwitchMenu = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const [nav,setNav] = useState<string>("main")
-    const navigate = useNavigate()
+    const router = useRouter()
+
     const handleClick = () => {
         if (audioRef.current) {
             audioRef.current.play();
@@ -17,7 +18,7 @@ const SwitchMenu = () => {
         <div className={"grid max-w-[1300px] lg:grid-cols-2 2xl:grid-cols-5 w-full flex-wrap gap-[16px]"}>
             <audio ref={audioRef} src="/comp.mp3" preload="auto"></audio>
             <div onClick={() => {
-                navigate("/")
+                router.push("/")
                 setNav("main")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full h-full   relative'}>
@@ -43,7 +44,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
-                navigate("/about")
+                router.push("/about")
                 setNav("about")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>
@@ -69,7 +70,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
-                navigate("/projects")
+                router.push("/projects")
                 setNav("projects")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>
@@ -95,7 +96,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
-                navigate("/music")
+                router.push("/music")
                 setNav("music")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>
@@ -121,7 +122,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
-                navigate("/contact")
+                router.push("/contact")
                 setNav("contact")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>

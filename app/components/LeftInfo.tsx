@@ -7,8 +7,9 @@ import openbg from '@/public/openbg.svg'
 
 interface Modal{
     swModal: () => void;
+    setSocial: () => void;
 }
-const LeftInfo : React.FC<Modal> = ({swModal}) => {
+const LeftInfo : React.FC<Modal> = ({swModal,setSocial}) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const audioRefH = useRef<HTMLAudioElement>(null);
 
@@ -108,7 +109,12 @@ const LeftInfo : React.FC<Modal> = ({swModal}) => {
                         social
                     </h6>
                     <div
-                         onClick={handleClick}
+                         onClick={
+                             () => {
+                                 handleClick()
+                                 setSocial()
+                             }
+                    }
                         className={'w-full relative cursor-pointer  hover:bg-basered group py-[0px] px-[5px] border-basered border-[1.39px] flex justify-between items-center  h-fit '}>
                         <h6 className={'text-[24px] group-hover:text-white  uppercase text-basered bigbold'}>
                             open connection
