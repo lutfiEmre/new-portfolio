@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import reward1 from '@/public/reward1.svg'
 import reward2 from '@/public/reward2.svg'
@@ -6,8 +7,7 @@ import Image from "next/image";
 const ActiveQuest = () => {
     return (
         <div>
-            <div onClick={() => {
-            }} className={'flex flex-col cursor-pointer max-w-[450px]   relative'}>
+            <div className={'flex flex-col cursor-pointer max-w-[450px]   relative'}>
                 <div className={` !bg-basered w-[2.13px] h-full  absolute left-0'`}/>
 
                 <div

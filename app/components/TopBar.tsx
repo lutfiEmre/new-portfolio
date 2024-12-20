@@ -1,13 +1,13 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 
-const TopBar = () => {
-    const [localTime, setLocalTime] = useState(new Date());
-    const [serverTime, setServerTime] = useState(new Date());
+const TopBar: React.FC = () => {
+    const [localTime, setLocalTime] = useState<Date>(new Date());
+    const [serverTime, setServerTime] = useState<Date>(new Date());
 
     useEffect(() => {
         const interval = setInterval(() => {
-            const now = new Date();
+            const now: Date = new Date();
             setLocalTime(now);
 
             // Server time is 6 hours behind the current time

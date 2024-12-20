@@ -3,8 +3,8 @@ import "./globals.css";
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
-    subsets: ['latin'], // İhtiyacınıza göre "latin" veya "latin-ext"
-    variable: '--font-inter', // CSS değişkeni olarak ekleme
+    subsets: ['latin'],
+    variable: '--font-inter',
 });
 
 export const metadata: Metadata = {

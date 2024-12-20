@@ -8,13 +8,14 @@ const RainEffect = () => {
     const lightningRef = useRef<HTMLDivElement>(null);
     const puddleRef = useRef<HTMLDivElement>(null);
 
+
     useEffect(() => {
         const { innerWidth, innerHeight } = window;
         const dropCount = 500;
 
 
         const drops = Array.from({ length: dropCount }, () => {
-            const drop = document.createElement("div");
+            const drop : HTMLElement = document.createElement("div");
             drop.className = "rain-drop";
             const depth = Math.random() > 0.7 ? "front" : "back";
             drop.setAttribute("data-depth", depth);
@@ -24,11 +25,11 @@ const RainEffect = () => {
 
 
         const animateDrop = (drop: HTMLElement) => {
-            const startX = Math.random() * innerWidth;
-            const endY = innerHeight - 100;
-            const startY = -Math.random() * innerHeight - 50;
-            const angle = Math.random() < 0.5 ? -10 : -20;
-            const duration = Math.random() * 1.5 + 0.8;
+            const startX : number = Math.random() * innerWidth;
+            const endY : number = innerHeight - 100;
+            const startY : number = -Math.random() * innerHeight - 50;
+            const angle : number = Math.random() < 0.5 ? -10 : -20;
+            const duration : number = Math.random() * 1.5 + 0.8;
 
             drop.style.left = `${startX}px`;
             drop.style.transform = `rotateZ(${angle}deg)`;
@@ -52,7 +53,7 @@ const RainEffect = () => {
 
         const createRipple = (xPos: number) => {
             if (!puddleRef.current) return;
-            const ripple = document.createElement("div");
+            const ripple : HTMLElement = document.createElement("div");
             ripple.className = "ripple";
             ripple.style.left = `${xPos}px`;
             puddleRef.current.appendChild(ripple);

@@ -1,7 +1,7 @@
+"use client"
 import React from 'react';
 import Image from "next/image";
-import emrelutfi from "@/public/emrelutfi.svg";
-import infobg from "@/public/infobg.svg";
+
 import whalesvg from '@/public/whale.svg'
 
 const HomePage = () => {

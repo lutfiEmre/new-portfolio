@@ -1,24 +1,25 @@
 "use client"
 import Image from "next/image";
-import Main from "@/app/components/Main";
+
 import TopBar from "@/app/components/TopBar";
 import Container from "@/app/components/Container";
 import './css/extra.css'
 import righttop from "@/public/righttop.svg";
 import leftbottom from "@/public/leftbottom.svg";
-import React, {useEffect, useRef, useState} from "react";
+import React, { useRef, useState} from "react";
 import LeftInfo from "@/app/components/LeftInfo";
 import SwitchMenu from "@/app/components/SwitchMenu";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "@/app/components/pages/HomePage";
 import ActiveQuest from "@/app/components/ActiveQuest";
 import RainEffect from "@/app/components/RainEffect";
+import OpenToHire from "@/app/components/pages/OpenToHire";
 
 
 export default function Home() {
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-
+    const [isPlaying, setIsPlaying] = useState(true);
+    const [modal,setModal] = useState(false)
 
 
     const handleUserInteraction = () => {
@@ -39,6 +40,7 @@ export default function Home() {
       <BrowserRouter>
           <div onClick={handleUserInteraction}
                className={'flex flex-col h-full overflow-hidden  py-[20px]  w-full z-10  min-h-screen bg-[#000003] relative '}>
+              {modal && ( <OpenToHire  swModal={() => setModal(!modal)} />)}
               <audio ref={audioRef} preload="auto">
                   <source src="/rainsound.mp3" type="audio/mpeg"/>
               </audio>
@@ -49,8 +51,8 @@ export default function Home() {
                   <div className={'z-20'}>
                       <TopBar/>
                       <div className={'flex gap-[33px] w-full mt-[50px] text-white flex-col sm:flex-row'}>
-                          <div className={'flex flex-col'}>
-                              <LeftInfo/>
+                          <div className={'flex flex-col gap-7'}>
+                              <LeftInfo  swModal={() => setModal(!modal)} />
                               <div className={'sm:block lg:hidden hidden'}>
                                   <Routes>
                                       <Route path="/" element={<ActiveQuest/>}/>

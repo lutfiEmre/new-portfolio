@@ -1,17 +1,13 @@
 "use client"
-import React, {useEffect, useRef, useState} from 'react';
-import Image from "next/image";
-import openbg from "@/public/openbg.svg";
+import React, { useRef, useState} from 'react';
+
 import {useNavigate} from "react-router-dom";
 
 const SwitchMenu = () => {
-    const audioRef = useRef(null);
+    const audioRef = useRef<HTMLAudioElement>(null);
 
-    const [nav,setNav] = useState("main")
+    const [nav,setNav] = useState<string>("main")
     const navigate = useNavigate()
-    useEffect(() => {
-        navigate(nav === "main" ? "/" : `/${nav}`)
-    }, [nav]);
     const handleClick = () => {
         if (audioRef.current) {
             audioRef.current.play();
@@ -21,6 +17,7 @@ const SwitchMenu = () => {
         <div className={"grid max-w-[1300px] lg:grid-cols-2 2xl:grid-cols-5 w-full flex-wrap gap-[16px]"}>
             <audio ref={audioRef} src="/comp.mp3" preload="auto"></audio>
             <div onClick={() => {
+                navigate("/")
                 setNav("main")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full h-full   relative'}>
@@ -46,6 +43,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
+                navigate("/about")
                 setNav("about")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>
@@ -71,6 +69,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
+                navigate("/projects")
                 setNav("projects")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>
@@ -96,6 +95,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
+                navigate("/music")
                 setNav("music")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>
@@ -121,6 +121,7 @@ const SwitchMenu = () => {
                 </div>
             </div>
             <div onClick={() => {
+                navigate("/contact")
                 setNav("contact")
                 handleClick()
             }} className={'flex flex-col cursor-pointer w-full   relative'}>
@@ -142,7 +143,7 @@ const SwitchMenu = () => {
                 </div>
                 <div
                     className={'w-full text-[13px] text-opacity-50 bg-opacity-50 leading-4 text-white  h-full pb-[5px]  p-[6px] iceregular bg-[#131313]'}>
-                    Communicate with me, let's explore worlds that don't exist together.
+                    Communicate with me, lets explore worlds that dont exist together.
                 </div>
             </div>
         </div>

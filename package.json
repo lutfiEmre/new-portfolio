@@ -9,16 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "formik": "^2.4.6",
     "gsap": "^3.12.5",
     "next": "^15.1.2",
+    "nodemailer": "^6.9.16",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.2",
-    "three": "^0.171.0"
+    "three": "^0.171.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

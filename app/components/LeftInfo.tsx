@@ -4,9 +4,13 @@ import infobg from '@/public/infobg.svg'
 import emrelutfi from '@/public/emrelutfi.svg'
 import Image from "next/image";
 import openbg from '@/public/openbg.svg'
-const LeftInfo = () => {
-    const audioRef = useRef(null);
-    const audioRefH = useRef(null);
+
+interface Modal{
+    swModal: () => void;
+}
+const LeftInfo : React.FC<Modal> = ({swModal}) => {
+    const audioRef = useRef<HTMLAudioElement>(null);
+    const audioRefH = useRef<HTMLAudioElement>(null);
 
     const handleCef = () => {
         if (audioRefH.current) {
@@ -23,7 +27,7 @@ const LeftInfo = () => {
             <audio ref={audioRef} src="/comp.mp3" preload="auto"></audio>
             <audio ref={audioRefH} src="/hover.mp3" preload="auto"></audio>
 
-            <div onMouseEnter={handleCef} className={'flex w-[270px] justify-center  group cursor-pointer  items-center h-[220px]'}>
+            <div className={'flex w-[270px] justify-center  group cursor-pointer  items-center h-[220px]'}>
                 <Image className={'w-[220px] p-[5px] overflow-hidden h-[205px] object-cover absolute'} width={220}
                        height={205} src={emrelutfi} alt={'info bg'}/>
 
@@ -37,7 +41,7 @@ const LeftInfo = () => {
                         <h6 className={'text-white uppercase iceregular text-[20px]'}>
                             NAME
                         </h6>
-                        <h6 onMouseEnter={handleCef}
+                        <h6
                             className={'text-basered  hover:text-white cursor-pointer   iceregular text-[24px]'}>
                             EmreLutfi
                         </h6>
@@ -68,7 +72,7 @@ const LeftInfo = () => {
                     <h6 className={'text-white uppercase iceregular text-[20px]'}>
                         occupation
                     </h6>
-                    <h6 onMouseEnter={handleCef}
+                    <h6
                         className={'text-basered  hover:text-white cursor-pointer   iceregular text-[24px]'}>
                         Front-end Developer
                     </h6>
@@ -78,7 +82,7 @@ const LeftInfo = () => {
                         corporation
                     </h6>
                     <h6
-                        onMouseEnter={handleCef}
+
                         className={'text-basered hover:text-white cursor-pointer   iceregular text-[24px]'}>
                         EmreLutfi.com
                     </h6>
@@ -87,7 +91,10 @@ const LeftInfo = () => {
                     <h6 className={'text-white uppercase iceregular text-[20px]'}>
                         availability
                     </h6>
-                    <div onMouseEnter={handleCef} onClick={handleClick}
+                    <div  onClick={() => {
+                        handleClick()
+                        swModal()
+                    }}
                          className={'w-full group relative cursor-pointer  h-[31px] '}>
                         <h6 className={'text-[24px] group-hover:text-white px-[5px] absolute uppercase text-black bigbold'}>
                             open for hire
@@ -101,7 +108,7 @@ const LeftInfo = () => {
                         social
                     </h6>
                     <div
-                        onMouseEnter={handleCef} onClick={handleClick}
+                         onClick={handleClick}
                         className={'w-full relative cursor-pointer  hover:bg-basered group py-[0px] px-[5px] border-basered border-[1.39px] flex justify-between items-center  h-fit '}>
                         <h6 className={'text-[24px] group-hover:text-white  uppercase text-basered bigbold'}>
                             open connection
@@ -117,7 +124,7 @@ const LeftInfo = () => {
                 </div>
                 <div className={'flex flex-col sm:flex-row mt-4 gap-4'}>
                     <div
-                        onMouseEnter={handleCef}
+
                         onClick={handleClick}
                         className={'w-full relative cursor-pointer py-[4px] hover:bg-basered group px-[15px] border-basered border-[1.39px] flex justify-center items-center  h-fit '}>
                         <h6 className={'text-[18px] uppercase group-hover:text-white text-basered bigbold'}>
@@ -127,7 +134,7 @@ const LeftInfo = () => {
 
                     </div>
                     <div
-                        onMouseEnter={handleCef}
+
                         onClick={handleClick}
                         className={'w-full relative hover:bg-basered group cursor-pointer py-[4px] px-[15px] border-basered border-[1.39px] flex justify-center items-center  h-fit '}>
                         <h6 className={'text-[18px] uppercase group-hover:text-white text-basered bigbold'}>
