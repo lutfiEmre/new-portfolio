@@ -15,13 +15,13 @@ const SwitchMenu = () => {
         }
     };
     return (
-        <div className={"grid max-w-[1300px] lg:grid-cols-2 2xl:grid-cols-5 w-full flex-wrap gap-[16px]"}>
+        <div className={"grid max-w-[750px] lg:grid-cols-3 2xl:grid-cols-5 w-full flex-wrap gap-[16px]"}>
             <audio ref={audioRef} src="/comp.mp3" preload="auto"></audio>
             <div onClick={() => {
                 router.push("/")
                 setNav("main")
                 handleClick()
-            }} className={'flex flex-col cursor-pointer w-full h-full   relative'}>
+            }} className={'flex flex-col cursor-pointer w-full   relative'}>
                 <div className={`${nav === "main" && "!bg-basered"} bg-[#333333] w-[2.13px] h-full  absolute left-0'`}/>
 
                 <div

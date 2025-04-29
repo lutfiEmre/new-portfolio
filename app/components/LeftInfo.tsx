@@ -28,15 +28,15 @@ const LeftInfo : React.FC<Modal> = ({swModal,setSocial}) => {
             <audio ref={audioRef} src="/comp.mp3" preload="auto"></audio>
             <audio ref={audioRefH} src="/hover.mp3" preload="auto"></audio>
 
-            <div className={'flex w-[270px] justify-center  group cursor-pointer  items-center h-[220px]'}>
-                <Image className={'w-[220px] p-[5px] overflow-hidden h-[205px] object-cover absolute'} width={220}
+            <div className={'flex w-[250px] h-[130px] justify-center  group cursor-pointer  items-center ]'}>
+                <Image className={'w-[160px] p-[5px] overflow-hidden h-[150px] object-cover absolute'} width={220}
                        height={205} src={emrelutfi} alt={'info bg'}/>
 
                 <Image
-                    className={'group-hover:border-white  group-hover:border-opacity-[50%] w-[300px] h-[242px] cursor-pointer group-hover:border-[2px]'}
+                    className={'group-hover:border-white  group-hover:border-opacity-[50%] w-[180px] h-[180px] cursor-pointer group-hover:border-[2px]'}
                     width={269} height={242} src={infobg} alt={'info bg'}/>
             </div>
-            <div className={'flex flex-col w-full gap-[12px]'}>
+            <div className={'flex flex-col w-full gap-[0px]'}>
                 <div className={'mt-[30px] w-full flex justify-between items-start'}>
                     <div className={'flex flex-col'}>
                         <h6 className={'text-white uppercase iceregular text-[20px]'}>
@@ -88,7 +88,7 @@ const LeftInfo : React.FC<Modal> = ({swModal,setSocial}) => {
                         EmreLutfi.com
                     </h6>
                 </div>
-                <div className={'flex flex-col '}>
+                <div className={'flex flex-col gap-2 '}>
                     <h6 className={'text-white uppercase iceregular text-[20px]'}>
                         availability
                     </h6>
@@ -104,7 +104,7 @@ const LeftInfo : React.FC<Modal> = ({swModal,setSocial}) => {
                                src={openbg} alt={'info bg'}/>
                     </div>
                 </div>
-                <div className={'flex flex-col cursor-pointer'}>
+                <div className={'flex flex-col mt-2 gap-2 cursor-pointer'}>
                     <h6 className={'text-white uppercase iceregular text-[20px]'}>
                         social
                     </h6>
@@ -132,7 +132,7 @@ const LeftInfo : React.FC<Modal> = ({swModal,setSocial}) => {
                     <div
 
                         onClick={handleClick}
-                        className={'w-full relative cursor-pointer py-[4px] hover:bg-basered group px-[15px] border-basered border-[1.39px] flex justify-center items-center  h-fit '}>
+                        className={'w-full relative whitespace-nowrap cursor-pointer py-[4px] hover:bg-basered group px-[15px] border-basered border-[1.39px] flex justify-center items-center  h-fit '}>
                         <h6 className={'text-[18px] uppercase group-hover:text-white text-basered bigbold'}>
                             See My Resume
                         </h6>

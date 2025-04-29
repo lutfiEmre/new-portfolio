@@ -1,10 +1,14 @@
 "use client"
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "next/image";
 
 import whalesvg from '@/public/whale.svg'
+import {ComputersCanvas} from "@/app/components/canvas";
+
 
 const HomePage = () => {
+    const [isMobile, setIsMobile] = useState<any>(false);
+
     return (
         <div className="mt-[35px]  w-full flex flex-col">
             <h6 className={'iceregular  leading-6 text-[16px] text-white w-full'}>
@@ -14,10 +18,12 @@ const HomePage = () => {
             </h6>
             <div className={'mt-[24px]'}>
                 <div className={'flex  justify-center group cursor-pointer  items-center '}>
+                    <div className={' w-[700px] h-[290px] overflow-hidden'}>
+                        <div className={' w-[700px]   h-[450px] -mt-[70px]'}>
+                            <ComputersCanvas isMobile={isMobile} />
+                        </div>
+                    </div>
 
-                    <Image
-                        className={' w-full max-w-[1500px] h-fit cursor-pointer'}
-                        width={269} height={242} src={whalesvg} alt={'info bg'}/>
                 </div>
             </div>
         </div>

@@ -42,7 +42,7 @@ const Main : React.FC<Asd> =({children}) => {
     };
     return (
         <div onClick={handleUserInteraction}
-             className={'flex flex-col h-full overflow-hidden  py-[20px]  w-full z-10  min-h-screen bg-[#000003] relative '}>
+             className={'flex flex-col h-full overflow-hidden  py-[0px]  w-full z-10  min-h-screen bg-[#000003] relative '}>
             {modal && ( <OpenToHire  swModal={() => setModal(!modal)} />)}
             {social && ( <SocialMedia  setSocial={() => setSocial(!social)} />)}
             <audio ref={audioRef} preload="auto">
@@ -54,7 +54,7 @@ const Main : React.FC<Asd> =({children}) => {
             <Container>
                 <div className={'z-20'}>
                     <TopBar/>
-                    <div className={'flex gap-[33px] w-full mt-[50px] text-white flex-col sm:flex-row'}>
+                    <div className={'flex gap-[33px] w-full mt-[20px] text-white flex-col sm:flex-row'}>
                         <div className={'flex flex-col gap-7'}>
                             <LeftInfo  setSocial={() => {setSocial(!social)}} swModal={() => setModal(!modal)} />
                             {pathname === "/" && (
